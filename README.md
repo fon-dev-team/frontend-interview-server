@@ -36,6 +36,54 @@ $ docker-compose up
 | /users/{userId}/developers/{userId}       | GET, POST, DELETE      |
 | /users/{userId}/specialties/{specialtyId} | GET, POST, DELETE      |
 
+##### Team
+
+```json
+{
+    "id": "7a2031bf-edde-4352-9156-2b4858bd6a21",
+    "name": "Backend"
+}
+
+```
+##### Specialty
+
+```json
+{
+    "id": "c5442259-bc08-47af-90ea-700d3db042a1",
+    "name": "Angular"
+}
+
+```
+##### Developer (User)
+
+```json
+{
+   "id": "45cffd30-fa95-411c-9405-9a1c138f92ea",
+   "name": "Bernita",
+   "surname": "Cremin",
+   "age": 22,
+   "email": "Skylar0@gmail.com",
+   "avatar": "http://lorempixel.com/100/100",
+   "type": "developer"
+}
+
+```
+##### TeamLeader (User)
+
+```json
+{
+    "id": "dce6a72f-4aed-46aa-9e56-784cf9f721ce",
+    "name": "Freddie",
+    "surname": "Dickens",
+    "age": 18,
+    "email": "Axel47@hotmail.com",
+    "avatar": "http://lorempixel.com/100/100",
+    "teamLeaderOf": "7a2031bf-edde-4352-9156-2b4858bd6a21",
+    "type": "team-leader"
+}
+
+```
+
 ## Commands
 
 ```bash
