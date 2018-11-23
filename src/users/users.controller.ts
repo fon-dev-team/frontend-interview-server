@@ -15,12 +15,14 @@ import {Repository} from 'typeorm';
 import {User} from '../database/entities/user.entity';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Specialty} from '../database/entities/specialty.entity';
+import {Team} from '../database/entities/team.entity';
 
 @Controller('users')
 @UseInterceptors(ClassSerializerInterceptor)
 export class UsersController {
     constructor(@InjectRepository(User) private readonly repository: Repository<User>,
-                @InjectRepository(Specialty) private readonly specialtyRepository: Repository<Specialty>) {
+                @InjectRepository(Specialty) private readonly specialtyRepository: Repository<Specialty>,
+                @InjectRepository(Team) private readonly teamRepository: Repository<Team>) {
     }
 
     @Get()
@@ -42,6 +44,12 @@ export class UsersController {
     async update(@Param('id') id, @Body() user: User) {
         if (!await this.repository.findOne(id))
             throw new NotFoundException();
+
+        if (user.teamLeaderOf) {
+            const team = await this.teamRepository.findOne(user.teamLeaderOf as any);
+            if (!team) throw new NotFoundException(`No team with ID=${user.teamLeaderOf} found.`);
+            user.teamLeaderOf = team;
+        }
 
         return this.repository.save({id, ...user});
     }
