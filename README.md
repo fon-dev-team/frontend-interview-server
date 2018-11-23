@@ -20,6 +20,22 @@ $ npm install
 $ docker-compose up 
 ```
 
+## Server E/R diagram
+
+<p align="center">
+  <img src="https://www.lucidchart.com/publicSegments/view/7c88c817-9831-4e48-8418-126d86433a3a/image.jpeg" width="700" alt="E/R" />
+</p>
+
+## Server API
+
+| Endpoint                             | Verbs                  |
+|--------------------------------------|------------------------|
+| /teams                               | GET                    |
+| /specialties/{id}                    | GET, POST, PUT, DELETE |
+| /users/{id}                          | GET, POST, PUT, DELETE |
+| /users/{userId}/developers/{userId}  | GET, POST, DELETE      |
+| /users/{userId}/specialties/{userId} | GET, POST, DELETE      |
+
 ## Commands
 
 ```bash
