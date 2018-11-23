@@ -1,0 +1,31 @@
+version: '3'
+services:
+  database:
+    image: postgres:11
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - './database/init-db.sh:/docker-entrypoint-initdb.d/1-init-db.sh'
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: test
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  server:
+    image: node:11
+    restart: always
+    ports:
+      - 3000:3000
+    links:
+      - database
+    command: ['npm', 'run', 'start:dev']
+    volumes:
+      - './:/src'
+    working_dir: '/src'
