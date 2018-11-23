@@ -28,13 +28,13 @@ $ docker-compose up
 
 ## Server API
 
-| Endpoint                             | Verbs                  |
-|--------------------------------------|------------------------|
-| /teams                               | GET                    |
-| /specialties/{id}                    | GET, POST, PUT, DELETE |
-| /users/{id}                          | GET, POST, PUT, DELETE |
-| /users/{userId}/developers/{userId}  | GET, POST, DELETE      |
-| /users/{userId}/specialties/{userId} | GET, POST, DELETE      |
+| Endpoint                                  | Verbs                  |
+|-------------------------------------------|------------------------|
+| /teams                                    | GET                    |
+| /specialties/{id}                         | GET, POST, PUT, DELETE |
+| /users/{id}                               | GET, POST, PUT, DELETE |
+| /users/{userId}/developers/{userId}       | GET, POST, DELETE      |
+| /users/{userId}/specialties/{specialtyId} | GET, POST, DELETE      |
 
 ## Commands
 
